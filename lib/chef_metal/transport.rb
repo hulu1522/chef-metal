@@ -61,8 +61,8 @@ module ChefMetal
       else
         if stdout_chunk
           if options[:stream_stdout]
-            #Chef::Log.info(stdout_chunck)
-            puts stdout_chunk
+            Chef::Log.info(stdout_chunck)
+            #puts stdout_chunk
             #options[:stream_stdout].print stdout_chunk
           elsif options[:stream] || config[:log_level] == :debug
             STDOUT.print stdout_chunk
