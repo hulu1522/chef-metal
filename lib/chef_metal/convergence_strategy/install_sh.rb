@@ -42,8 +42,8 @@ module ChefMetal
             command_line = "chef-client"
             command_line << " -l #{config[:log_level].to_s}" if config[:log_level]
             machine.execute(action_handler, command_line,
-              :stream_stdout => stdout,
-              :stream_stderr => stderr,
+              :stream_stdout => STDOUT,
+              :stream_stderr => STDERR,
               :timeout => @chef_client_timeout)
           end
         end
