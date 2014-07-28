@@ -44,12 +44,14 @@ module ChefMetal
 
               channel.on_data do |ch2, data|
                 stdout << data
-                stream_chunk(execute_options, data, nil)
+                execute_options[:stream_stdout].print data
+                # stream_chunk(execute_options, data, nil)
               end
 
               channel.on_extended_data do |ch2, type, data|
                 stderr << data
-                stream_chunk(execute_options, nil, data)
+                execute_options[:stream_stderr].print data
+                # stream_chunk(execute_options, nil, data)
               end
 
               channel.on_request "exit-status" do |ch, data|
