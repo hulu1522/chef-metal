@@ -62,7 +62,7 @@ module ChefMetal
         end
 
         Chef::Log.info("Completed #{command} on #{username}@#{host}: exit status #{exitstatus}")
-        Chef::Log.debug("Stdout was:\n#{stdout}") if stdout != '' && !options[:stream] && !options[:stream_stdout] && config[:log_level] != :debug
+        Chef::Log.info("Stdout was:\n#{stdout}") if stdout != '' && !options[:stream] && !options[:stream_stdout] && config[:log_level] != :debug
         Chef::Log.info("Stderr was:\n#{stderr}") if stderr != '' && !options[:stream] && !options[:stream_stderr] && config[:log_level] != :debug
         SSHResult.new(command, execute_options, stdout, stderr, exitstatus)
       end
