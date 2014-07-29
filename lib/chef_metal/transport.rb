@@ -62,14 +62,14 @@ module ChefMetal
         if stdout_chunk
           if options[:stream_stdout]
             options[:stream_stdout].print stdout_chunk
-          if options[:stream] || config[:log_level] == :warn
+          elsif options[:stream] || config[:log_level] == :debug
             STDOUT.print stdout_chunk
           end
         end
         if stderr_chunk
           if options[:stream_stderr]
             options[:stream_stderr].print stderr_chunk
-          if options[:stream] || config[:log_level] == :warn
+          elsif options[:stream] || config[:log_level] == :debug
             STDERR.print stderr_chunk
           end
         end
